@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+
+		 ______                           __                
+		/\  _  \                         /\ \               
+		\ \ \L\ \  _____      __      ___\ \ \___      __   
+		 \ \  __ \/\ '__`\  /'__`\   /'___\ \  _ `\  /'__`\ 
+		  \ \ \/\ \ \ \L\ \/\ \L\.\_/\ \__/\ \ \ \ \/\  __/ 
+		   \ \_\ \_\ \ ,__/\ \__/.\_\ \____\\ \_\ \_\ \____\
+		    \/_/\/_/\ \ \/  \/__/\/_/\/____/ \/_/\/_/\/____/
+		             \ \_\                                  
+		              \/_/                                  
+                                                    
+		       /'\_/`\                                      
+		      /\      \     __    ____    ___     ____      
+		      \ \ \__\ \  /'__`\ /',__\  / __`\  /',__\     
+		       \ \ \_/\ \/\  __//\__, `\/\ \L\ \/\__, `\    
+		        \ \_\\ \_\ \____\/\____/\ \____/\/\____/    
+		         \/_/ \/_/\/____/\/___/  \/___/  \/___/     
+		
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Apache Mesos | Getting Started</title>
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="">
+		    <meta name="author" content="">
+
+		    <!-- Le styles -->
+		    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+		    <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+				<link href="/assets/css/main.css" rel="stylesheet">
+				
+				<!-- JS -->
+				<script type="text/javascript" src="/assets/js/jquery-1.10.1.min.js"></script>
+				<script type="text/javascript" src="/assets/js/bootstrap-dropdown.js"></script>
+    </head>
+    <body>			
+			<!-- navbar excitement -->
+	    <div class="navbar navbar-static-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+						<a href="/" class="logo"><img src="/assets/img/mesos_logo_dkblue.png"></a>
+	          <ul class="nav">
+	            <li><a href="/gettingstarted/">Getting Started</a></li>
+	            <li><a href="/documentation/">Documentation</a></li>
+	            <li><a href="/downloads/">Downloads</a></li>
+	            <li><a href="/community/">Community</a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </div><!-- /.navbar -->
+
+
+      <div class="container">
+
+			<!-- magical breadcrumbs -->
+			<ul class="breadcrumb">
+			  <li>
+					<div class="dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Apache Software Foundation <b class="caret"></b></a>
+					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<li><a href="http://www.apache.org">Apache Homepage</a></li>
+							<li><a href="http://www.apache.org/licenses/">License</a></li>
+					  	<li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>  
+					  	<li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+							<li><a href="http://www.apache.org/security/">Security</a></li>
+					  </ul>
+					</div>
+				</li>
+				<li><span class="divider">></span></li>
+				<li><a href="http://incubator.apache.org/mesos/">Apache Mesos</a> <span class="divider">></span></li>
+			</ul><!-- /breadcrumb -->
+
+			  <div class="row-fluid">
+		<div class="span4">
+			<h4>What you'll find on this page</h4>
+  		<ul>
+				<li>System Requirements</li>
+				<li>Downloading Mesos</li>
+				<li>Building Mesos</li>
+				<li>Testing the build</li>
+				<li>Deploying to a Cluster</li>
+			</ul>
+		</div>
+    <div class="span8">
+      <h2>Getting Started with Mesos</h2>
+
+<h3>System Requirements</h3>
+
+<p>Mesos runs on Linux and Mac OS X, and has previously also been tested on OpenSolaris. You will need the following packages to run it:</p>
+
+<ul>
+	<li>g++ 4.1 or higher.</li>
+	<li>Python 2.6 (for the Mesos web UI). On Mac OS X 10.6 or earlier, get Python from <a href="http://www.macports.org">MacPorts</a> via <code>port install python26</code>, because OS X's version of Python is not 64-bit.</li>
+	<li>Python 2.6 developer packages (on red-hat - <code>sudo yum install python26-devel python-devel</code>)</li>
+	<li>cppunit (for building zookeeper) (on red-hat - <code>sudo yum install cppunit-devel</code>)</li>
+	<li>Java JDK 1.6 or higher. Mac OS X 10.6 users will need to install the JDK from http://connect.apple.com/ and set <code>JAVA_HEADERS=/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers</code>.</li>
+</ul>
+
+<h3>Downloading Mesos</h3>
+
+<p>Mesos is available as a tar file, or the source can be downloaded directly from git. To get running with Mesos version 0.11.0-incubating, our most-recent release by either:</p>
+
+<ul>
+	<li><a href="http://www.apache.org/dyn/closer.cgi/incubator/mesos/mesos-0.11.0-incubating/">Download Mesos 0.11.0-incubating</a></li>
+	<li>Obtain the current Mesos development HEAD by checking it out from Apache Git repository, using: <code>git clone git://git.apache.org/mesos.git</code></li>
+</ul>
+
+<h3>Building Mesos</h3>
+
+<ul>
+	<li>Run <code>./configure</code>, which includes the web UI and included Zookeeper.  Advanced users may want to exclude these options or include other options, see [Mesos Command-Line Flags](Configuration.textile).</li>
+	<li>Run <code>make</code></li>
+</ul>
+
+<h4>NOTES:</h4>
+<ul>
+	<li>The build process attempts to guess where your Java include directory is, but if you have set the $JAVA_HOME environment variable, it will use $JAVA_HOME/include, which may not be correct (or exist) on your machine (in which case you will see an error such as: "configure: error: failed to build against JDK (using libtool)"). If this is the case, we suggest you unset the JAVA_HOME environment variable.</li>
+	<li>`configure` may print a warning at the end about "unrecognized options: --with-java-home, ...". This comes from one of the nested `configure` scripts that we call, so it doesn't mean that your options were ignored.</li>
+	<li>(NOT SURE IF THIS IS STILL RELEVANT) On 32-bit platforms, you should set `CXXFLAGS="-march=i486"` when running `configure` to ensure certain atomic instructions can be used.</li>
+</ul>
+
+<h3>Running Example Frameworks and Testing Build</h3>
+
+<p>Currently, in order to run the example frameworks (in src/examples), you must first build the test suite, as instructed below.</p>
+
+<p>After you build Mesos by running the `make` command, you can build and run its example frameworks and unit tests (which use the example frameworks) by issuing the `make check` command from the directory where you ran the `make` command.</p>
+
+<p>After you have done this, you can also set up a small Mesos cluster and run a job on it as follows:</p>
+
+<ul>
+	<li>Go into the directory where you built Mesos.
+	<li>Type `bin/mesos-master.sh` to launch the master.
+	<li>Take note of the IP and port that the master is running on, which will look something like <code>192.168.0.1:5050</code>. <i>Note: In this example the IP address of master is 192.168.0.1, and the port is 5050. We will continue to use the URL shown here for the rest of this example; however when you run the following commands replace all instances of it with the URL of your master.</i></li>
+	<li>URL of master: <code>192.168.0.1:5050</code>
+	<li>View the master's web UI at `http://[hostname of master]:5050`.
+	<li>Launch a slave by typing <code>bin/mesos-slave.sh --master=192.168.0.1:5050</code>. The slave will show up on the master's web UI if you refresh it.
+	<li>Run the C++ test framework (a sample that just runs five tasks on the cluster) using <code>src/test-framework 192.168.0.1:5050</code>. It should successfully exit after running five tasks.
+	<li>You can also try the example python or Java frameworks, with commands like the following:</li>
+		<ul>
+			<li>`src/examples/java/test-framework 192.168.0.1:5050`</li>
+			<li>`src/examples/python/test-framework 192.168.0.1:5050`</li>
+		</ul>
+</ul>
+
+<h3>Deploying to a Cluster</h3>
+
+<p>To run Mesos on more than one machine, you have multiple options:</p>
+
+<ul>
+	<li>To launch a cluster on a private cluster that you own, use Mesos's [deploy scripts](Deploy-Scripts.textile)</li>
+	<li>To launch a cluster on Amazon EC2, you can use the Mesos [EC2 scripts](EC2-Scripts.textile)</li>
+</ul>
+   </div>
+  </div>
+			
+	      <hr>
+
+				<!-- footer -->
+	      <div class="footer">
+	        <p>&copy; 2012-2013 <a href="http://apache.org">The Apache Software Foundation</a>.
+	        Apache Mesos, the Apache feather logo, and the Apache Mesos project logo are trademarks of The Apache Software Foundation.<p>
+	      </div><!-- /footer -->
+
+	    </div> <!-- /container -->
+
+    </body>
+</html>

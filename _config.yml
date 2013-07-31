@@ -1,0 +1,5 @@
+name: Apache Mesos
+pygments: true
+destination: ../www
+permalink: pretty
+url: http://mesos.apache.org/
