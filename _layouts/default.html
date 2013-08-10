@@ -29,13 +29,9 @@
 		    <meta name="author" content="">
 
 		    <!-- Le styles -->
-		    <link href="{{ site.url }}assets/css/bootstrap.css" rel="stylesheet">
-		    <link href="{{ site.url }}assets/css/bootstrap-responsive.min.css" rel="stylesheet">
-		    <link href="{{ site.url }}assets/css/main.css" rel="stylesheet">
-				
-		    <!-- JS -->
-		    <script type="text/javascript" src="{{ site.url }}assets/js/jquery-1.10.1.min.js"></script>
-		    <script type="text/javascript" src="{{ site.url }}assets/js/bootstrap-dropdown.js"></script>
+		    <link href="{{ site.cdnurl }}assets/css/bootstrap.css" rel="stylesheet">
+		    <link href="{{ site.cdnurl }}assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+		    <link href="{{ site.cdnurl }}assets/css/main.css" rel="stylesheet">
 		
 				<!-- Google Analytics Magic -->
 				<script>
@@ -53,7 +49,9 @@
 	    <div class="navbar navbar-static-top">
 	      <div class="navbar-inner">
 	        <div class="container">
-						<a href="{{ site.url }}" class="logo"><img src="{{ site.url }}assets/img/mesos_logo.png"></a>
+            <a href="{{ site.url }}" class="logo">
+              <img src="{{ site.cdnurl }}assets/img/mesos_logo.png" width="320" height="140" alt="Mesos">
+            </a>
 	          <ul class="nav">
 	            <li><a href="{{ site.url }}gettingstarted/">Getting Started</a></li>
 	            <li><a href="{{ site.url }}documentation/">Documentation</a></li>
@@ -97,5 +95,7 @@
 
 	    </div> <!-- /container -->
 
+      <script type="text/javascript" src="{{ site.cdnurl }}assets/js/jquery-1.10.1.min.js"></script>
+      <script type="text/javascript" src="{{ site.cdnurl }}assets/js/bootstrap-dropdown.js"></script>
     </body>
 </html>
